@@ -10,6 +10,10 @@ class LoginPageLocators:
     INVALID_CREDENTIALS = (By.XPATH, "//div[@role='alert']")
     REQUIRED_USERNAME = (By.XPATH, "(//span[text()='Required'])[1]")
     REQUIRED_PASSWORD = (By.XPATH, "(//span[text()='Required'])[2]")
+    LINKEDIN_LINK = (By.XPATH, "//a[contains(@href,'linkedin.com')]")
+    FACEBOOK_LINK = (By.XPATH, "//a[contains(@href,'facebook.com')]")
+    TWITTER_LINK = (By.XPATH, "//a[contains(@href,'twitter.com')]")
+    YOUTUBE_LINK = (By.XPATH, "//a[contains(@href,'youtube.com')]")
 
 
 class LoginPage(BasePage):
@@ -40,3 +44,18 @@ class LoginPage(BasePage):
 
     def get_required_message_for_password(self):
         return self.wait_for_element(LoginPageLocators.REQUIRED_USERNAME).text
+
+    def get_invalid_credentials(self):
+        return self.wait_for_element(LoginPageLocators.INVALID_CREDENTIALS).text
+
+    def click_linkedin_link(self):
+        self.wait_for_element(LoginPageLocators.LINKEDIN_LINK).click()
+
+    def click_facebook_link(self):
+        self.wait_for_element(LoginPageLocators.FACEBOOK_LINK).click()
+
+    def click_twitter_link(self):
+        self.wait_for_element(LoginPageLocators.TWITTER_LINK).click()
+
+    def click_youtube_link(self):
+        self.wait_for_element(LoginPageLocators.YOUTUBE_LINK).click()
